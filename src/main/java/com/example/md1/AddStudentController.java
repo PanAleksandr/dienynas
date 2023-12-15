@@ -120,6 +120,21 @@ public class AddStudentController implements Initializable {
 
                     prepare.executeUpdate();
 
+                    String insertStudentGrade = "INSERT INTO subject"
+                            + "(student_id,course,first_sem,second_sem,final)"
+                            + "VALUES(?,?,?,?,?)";
+
+                    prepare= connect.prepareStatement(insertStudentGrade);
+                    prepare.setString(1,student_number.getText());
+                    prepare.setString(2,student_course.getSelectionModel().getSelectedItem());
+                    prepare.setString(3,"0.0");
+                    prepare.setString(4,"0.0");
+                    prepare.setString(5,"0.0");
+
+                    prepare.executeUpdate();
+
+
+
                     alert.successMessage("Added Successfully!)");
 
                     clearFields();

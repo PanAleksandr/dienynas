@@ -16,10 +16,14 @@ public class StudentData {
     private Date dateDelete;
     private String status;
     private String semester;
+    private Double firstSem;
+    private Double secondSem;
+    private Double finals;
+    private String subject;
 
     public StudentData (Integer id, String studentID, String fullName, String gender,
                         Date birthDate,String year, String course, String section,
-                        Date dateInsert,Date dateUpdate, Date dateDelete, String status){
+                        Date dateInsert,Date dateUpdate, Date dateDelete, String status /*,String subject*/){
         this.id= id;
         this.studentID = studentID;
         this.fullName = fullName;
@@ -34,6 +38,18 @@ public class StudentData {
         this.dateDelete = dateDelete;
         this.status= status;
 
+
+    }
+    public StudentData(Integer id,String studentID,String course ,
+                       double firstSem, double secondSem, double finals,String subject){
+        this.id=id;
+        this.studentID=studentID;
+        this.course=course;
+        this.firstSem= firstSem;
+        this.secondSem=secondSem;
+        this.finals=finals;
+        this.subject=subject;
+
     }
 
     public StudentData(Integer id, String studentID, String fullName, String year, String course,String semester,
@@ -47,6 +63,13 @@ public class StudentData {
         this.section= section;
         this.dateInsert=dateInsert;
         this.status=status;
+
+    }
+
+    public StudentData(int id, String student_id, String course, String first_sem, String second_sem, java.sql.Date aFinal) {
+    }
+
+    public StudentData() {
 
     }
 
@@ -92,5 +115,16 @@ public class StudentData {
         return status;
      }
 
-
+public Double getFirstSem(){
+        return firstSem;
+}
+public Double getSecondSem(){
+        return secondSem;
+}
+public Double getFinals(){
+        return finals;
+}
+public String getSubject(){
+    return subject;
+}
 }

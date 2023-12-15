@@ -102,6 +102,7 @@ public class LoginController implements Initializable {
     @FXML
     private Button teacher_signupBtn;
 
+
     @FXML
     private TextField teacher_username;
 
@@ -158,16 +159,65 @@ public class LoginController implements Initializable {
                         stage.setTitle("University Management System | Admin Portal");
                         stage.setScene(new Scene(root));
 
-
-
                         stage.show();
 
                         login_btn.getScene().getWindow().hide(); //Hide my login form
 
                     } else if (role.equals("Student")) {
-                        //STUDENT
+                        String tempStudentID = result.getString("student_id");
+
+                        String checkData = "SELECT * FROM student WHERE student_id = '"
+                                + tempStudentID + "'";
+
+                        statement = connect.createStatement();
+                        result = statement.executeQuery(checkData);
+
+                        if (result.next()) {
+                            if (result.getString("status").equals("Approval")) {
+                                alert.errorMessage("Need the approval of the Admin!");
+                            } else {
+                                // TO GET THE USERNAME
+                                ListData.student_username = login_username.getText();
+
+                                Parent root = FXMLLoader.load(getClass().getResource("StudentMain.fxml"));
+                                Stage stage = new Stage();
+
+                                stage.setTitle("University Management System | Student Portal");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+
+                                // TO HIDE YOUR LOGIN FORM
+                                login_btn.getScene().getWindow().hide();
+                            }
+                        }
                     } else if (role.equals("Teacher")) {
-                        //TEACHEER
+                        String tempTeacherID = result.getString("teacher_id");
+
+                        String checkData = "SELECT * FROM teacher WHERE teacher_id = '"
+                                + tempTeacherID + "'";
+
+                        statement = connect.createStatement();
+                        result = statement.executeQuery(checkData);
+
+                        if (result.next()) {
+                            if (result.getString("status").equals("Approval")) {
+                                alert.errorMessage("Need the approval of the Admin!");
+                            } else {
+                                // TO GET THE USERNAME
+                                ListData.teacher_username = login_username.getText();
+
+                                Parent root = FXMLLoader.load(getClass().getResource("TeacherMain.fxml"));
+                                Stage stage = new Stage();
+
+                                stage.setTitle("University Management System | Teacher Portal");
+                                stage.setScene(new Scene(root));
+                                stage.show();
+
+                                // TO HIDE YOUR LOGIN FORM
+                                login_btn.getScene().getWindow().hide();
+                            }
+                        }
+
                     }
                 }else {
                     alert.errorMessage("Incorrect Username/Password");

@@ -2,13 +2,12 @@ package com.example.md1;
 
 import java.util.Date;
 
-public class TeacherData {
+public class TeacherData extends StudentData{
 
     private Integer id;
     private String teacherID;
     private String fullName;
     private String gender;
-    private Date birthDate;
     private String yearExperience;
     private String experience;
     private String department;
@@ -17,14 +16,13 @@ public class TeacherData {
     private Date dateDelete;
     private String status;
 
-    public TeacherData(Integer id,String teacherID,String fullName,String gender, Date birthDate,
+    public TeacherData(Integer id,String teacherID,String fullName,String gender,
                        String yearExperience,String experience, String department,
                        Date dateInsert,Date dateUpdate, Date dateDelete,String status){
                 this.id=id;
                 this.teacherID=teacherID;
                 this.fullName=fullName;
                 this.gender=gender;
-                this.birthDate=birthDate;
                 this.experience=experience;
                 this.department=department;
                 this.yearExperience =yearExperience;
@@ -42,9 +40,6 @@ public class TeacherData {
     }
     public String getGender(){
         return gender;
-    }
-    public Date getBirthDate(){
-        return birthDate;
     }
     public String getYearExperience(){
         return yearExperience;
