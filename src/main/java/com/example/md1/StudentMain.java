@@ -14,10 +14,8 @@ public class StudentMain extends AdminMainController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // Вызывает инициализацию родительского класса
         super.initialize(location, resources);
 
-        // Дополнительные действия для инициализации TeacherMain
         addSubjectDisplayData();
         addSubjectCourseList();
 
@@ -25,15 +23,12 @@ public class StudentMain extends AdminMainController implements Initializable {
 
     @Override
     public void dashboardDisplayTS() {
-        // Оставляем этот метод пустым, поскольку он не нужен в TeacherMain
     }
 
     @Override
     public void dashboardDisplayTT() {
-        // Оставляем этот метод пустым, поскольку он не нужен в TeacherMain
     }
-
-
+    
     @Override
     public void addSubjectSelectItem() {
     }

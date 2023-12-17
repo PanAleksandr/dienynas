@@ -951,21 +951,7 @@ public class AdminMainController implements Initializable {
     }
 
     private ObservableList<SubjectData> addSubjectListData;
-/*
-    public void addSubjectDisplayData() {
 
-        addSubjectListData = addSubjectGetData();
-
-        addSubject_col_code.setCellValueFactory(new PropertyValueFactory<>("subjectCode"));
-        addSubject_col_subject.setCellValueFactory(new PropertyValueFactory<>("subject"));
-        addSubject_col_course.setCellValueFactory(new PropertyValueFactory<>("course"));
-        addSubject_col_dateInsert.setCellValueFactory(new PropertyValueFactory<>("dateInsert"));
-        addSubject_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-       addSubject_tableView.setItems(addSubjectListData);
-    }
-
-*/
     private int subjectID = 0;
 
 
@@ -1159,17 +1145,7 @@ public class AdminMainController implements Initializable {
         }
     }
 
-   /* public void addSubjectStatusList() {
 
-        List<String> listS = new ArrayList<>();
-
-        for (String data : ListData.statusA) {
-            listS.add(data);
-        }
-
-        ObservableList listData = FXCollections.observableArrayList(listS);
-        addSubject_status.setItems(listData);
-    }*/
 
     public ObservableList<StudentData> studentGradesListData() {
 
@@ -1233,20 +1209,6 @@ public class AdminMainController implements Initializable {
         }
 
 
-    /*
-    public void addSubjectDisplayData() {
-
-        addSubjectListData = addSubjectGetData();
-
-        addSubject_col_code.setCellValueFactory(new PropertyValueFactory<>("subjectCode"));
-        addSubject_col_subject.setCellValueFactory(new PropertyValueFactory<>("subject"));
-        addSubject_col_course.setCellValueFactory(new PropertyValueFactory<>("course"));
-        addSubject_col_dateInsert.setCellValueFactory(new PropertyValueFactory<>("dateInsert"));
-        addSubject_col_status.setCellValueFactory(new PropertyValueFactory<>("status"));
-
-        addSubject_tableView.setItems(addSubjectListData);
-    }
-*/
 
     public void switchForm(ActionEvent event) {
 
@@ -1262,13 +1224,7 @@ public class AdminMainController implements Initializable {
             addSubject_form.setVisible(false);
 
 
-            //  dashboardDisplayTS();
-            //   dashboardDisplayTT();
-            //   dashboardDisplaySRT();
-            //  dashboardDisplayTI();
-            //  dashboardDSChart();
-            //  dashboardDTChart();
-            //  dashboardDIChart();
+
 
         }else if (event.getSource() == addStudent_btn) {
             dashboard_form.setVisible(false);

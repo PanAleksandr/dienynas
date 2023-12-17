@@ -1,8 +1,7 @@
 package com.example.md1;
  import java.util.Date;
 public class StudentData {
-
-
+    
     private Integer id;
     private String studentID;
     private String fullName;
