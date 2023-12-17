@@ -457,9 +457,7 @@ public class AdminMainController implements Initializable {
 
             TeacherData tData;
             while (result.next()) {
-                //    TeacherData(Integer id,String teacherID,String fullName,String gender, Date birthDate,
-                //            String yearExperience,String experience, String department,
-                //            Date dateInsert,Date dateUpdate, Date dateDelete,String status)
+               
                 tData = new TeacherData(result.getInt("id"), result.getString("teacher_id")
                         , result.getString("full_name"), result.getString("gender")
                         ,  result.getString("year_experience")
@@ -1051,7 +1049,7 @@ public class AdminMainController implements Initializable {
 
             if (finalCheck1 == 0 || finalCheck2 == 0) {
                 finalResult = 0;
-            } else { //LIKE (X+Y)/2 AVE WE NEED TO FIND FOR FINALS
+            } else { // (X+Y)/2
                 finalResult = (Double.parseDouble(studentGrade_firstSem.getText())
                         + Double.parseDouble(studentGrade_secondSem.getText()) / 2);
             }
@@ -1063,14 +1061,8 @@ public class AdminMainController implements Initializable {
                     + "', final = '" + finalResult + "' WHERE student_id = '"
                     + studentGrade_studentNum.getText() + "'";
 
-           // alert.successMessage("successfully!");
 
-            /*if (studentGrade_studentNum.getText().isEmpty()
-                    || addSubject_course.getSelectionModel().getSelectedItem().isEmpty()){
-                alert.errorMessage("Please fill all blank fields");
 
-            } else {
-*/
             if(alert.confirmMessage("Are you sure you want" +
                     " to UPDATE Student #" + studentGrade_studentNum.getText() + "?")){
                 statement= connect.createStatement();
@@ -1082,7 +1074,7 @@ public class AdminMainController implements Initializable {
                     return;
                 }
 
-            // NOT WE ARE CLOSER TO THE ENDING PART  :) LETS PROCEED TO DASHBOARD FORM
+
         } catch (Exception e) {
             e.printStackTrace();
         }
